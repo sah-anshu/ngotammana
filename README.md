@@ -144,6 +144,11 @@ origin resolved in `src/lib/site-url.ts`, in this order:
 
 ### Vercel project settings
 
+- **Framework Preset** must be Next.js. `vercel.json` pins this, because with
+  the preset set to "Other" the build still succeeds — Vercel runs
+  `npm run build` either way — but the deployment is then served as static files
+  out of `public/`, so every page returns `404: NOT_FOUND` while the images
+  under `/images/...` still load. That combination is the giveaway.
 - **Root Directory** must be `./`. The repository root *is* the Next.js app.
 - **Deployment Protection** (Settings → Deployment Protection) must be off for a
   public website. While Vercel Authentication is on, every request — pages and
