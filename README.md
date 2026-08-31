@@ -128,6 +128,26 @@ parser.
 
 ## Deployment
 
-Targets Vercel or any Node host; `next/image` optimization is enabled. Set
-`site.url` in `src/data/site.ts` to the real domain — it feeds `metadataBase`,
-Open Graph URLs, `sitemap.xml` and `robots.txt`.
+Deployed on Vercel from `main`; `next/image` optimization is enabled. Any Node
+host works too.
+
+### Canonical URL
+
+`metadataBase`, Open Graph URLs, `sitemap.xml` and `robots.txt` all use the
+origin resolved in `src/lib/site-url.ts`, in this order:
+
+1. `NEXT_PUBLIC_SITE_URL` — set this in the Vercel project once a real domain is
+   attached, e.g. `https://www.tammana.org.in`.
+2. `VERCEL_PROJECT_PRODUCTION_URL` — supplied automatically by Vercel, so
+   deployments advertise the host actually serving them.
+3. `site.url` in `src/data/site.ts` — the intended final domain.
+
+### Vercel project settings
+
+- **Root Directory** must be `./`. The repository root *is* the Next.js app.
+- **Deployment Protection** (Settings → Deployment Protection) must be off for a
+  public website. While Vercel Authentication is on, every request — pages and
+  static assets alike — 302s to a Vercel login page.
+- The auto-assigned production domain is `<project>-<team>.vercel.app`, not
+  `<project>.vercel.app`; the latter belongs to a different project and returns
+  `404: NOT_FOUND`.

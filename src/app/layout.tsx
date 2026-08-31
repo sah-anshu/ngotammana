@@ -5,6 +5,7 @@ import { SocialFloatingBar, WhatsAppButton } from '@/components/layout/FloatingB
 import SiteFooter from '@/components/layout/SiteFooter'
 import SiteHeader from '@/components/layout/SiteHeader'
 import { site } from '@/data/site'
+import { siteUrl } from '@/lib/site-url'
 
 import './globals.css'
 
@@ -26,7 +27,7 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${site.name} - ${site.tagline}`,
     template: `%s | ${site.name}`,
