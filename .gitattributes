@@ -1,0 +1,8 @@
+# Normalise line endings so the repo stays consistent across Windows and CI.
+* text=auto eol=lf
+
+# Binary assets: never touch, and skip them in diffs.
+*.webp binary
+*.ico binary
+*.png binary
+*.jpg binary

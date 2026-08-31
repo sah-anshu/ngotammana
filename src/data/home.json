@@ -1,0 +1,35 @@
+{
+  "slides": [
+    {
+      "src": "/images/home/carousel/four1.webp",
+      "width": 1200,
+      "height": 400,
+      "alt": "NGO Tammana volunteers at work — slide 1"
+    },
+    {
+      "src": "/images/home/carousel/one1.webp",
+      "width": 1200,
+      "height": 400,
+      "alt": "NGO Tammana volunteers at work — slide 2"
+    },
+    {
+      "src": "/images/home/carousel/three1.webp",
+      "width": 1200,
+      "height": 400,
+      "alt": "NGO Tammana volunteers at work — slide 3"
+    },
+    {
+      "src": "/images/home/carousel/two1.webp",
+      "width": 1200,
+      "height": 400,
+      "alt": "NGO Tammana volunteers at work — slide 4"
+    }
+  ],
+  "teamPhoto": {
+    "src": "/images/home/team-photo.webp",
+    "width": 259,
+    "height": 175
+  },
+  "quote": "'Not doing great things, but little things with great love!'",
+  "blurb": "TAMMANA is a Punjab Registered, Chandigarh Based, No Profit NGO working without any financial aid - passionately since 16+ years on a very consistent basis for the welfare of the society. Its team of over 50+ like minded members enthusiasts from various fields & backgrounds, who work selflessly & voluntarily without a salary or a fee, is founded and led by Isha Kakaria, who is also a State Awardee."
+}
