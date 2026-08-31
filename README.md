@@ -40,6 +40,7 @@ HTML.
 | `achievements.json` | 14 award cards + 15 text highlights |
 | `faqs.json`, `key-points.json`, `home.json` | Home and About page copy |
 | `site.ts` | Navigation tree, contact details, social links, Google Form ids |
+| `whats-next.ts` | Upcoming events (hand-maintained, see below) |
 
 **To add an event:** add a record to `events.json` (id, eventNo, title, excerpt,
 image) and a matching one to `event-details.json`, then drop the photo into
@@ -48,6 +49,36 @@ image) and a matching one to `event-details.json`, then drop the photo into
 Longer static prose (What We Do, the founder biography, Corona Drives intro,
 Join Us terms) is written directly in the page components, where its emphasis and
 links can be marked up properly.
+
+### Announcing the next event
+
+`/faqs/whats-next` reads `src/data/whats-next.ts`. Add an entry to
+`upcomingEvents` and it appears; leave the array empty and the page shows a
+"nothing announced yet" state instead — so the page is never broken or stale.
+
+```ts
+export const upcomingEvents: UpcomingEvent[] = [
+  {
+    eventNo: 173,
+    title: 'Winter Blanket Distribution Drive',
+    date: '2026-01-18',            // optional, ISO
+    time: '11 am onwards',         // optional
+    location: 'Guru Nanak Colony, Mohali',   // optional
+    body: ['First paragraph.', 'Second paragraph.'],
+    image: {                       // optional
+      src: '/images/whats-next/173.webp',
+      width: 1000, height: 750,
+      alt: 'Volunteers handing out blankets',
+    },
+    link: { href: 'https://forms.gle/...', label: 'Register to volunteer' },
+  },
+]
+```
+
+Only `title` and `body` are required. Put images in `public/images/whats-next/`
+— `npm run extract` clears only the folders it generates, so anything there is
+left alone. After the event happens, remove the entry and add it to
+`events.json` / `event-details.json` like any other past event.
 
 ## Re-running the migration
 
@@ -92,8 +123,9 @@ transfer size.
 - **Hover-only content is reachable.** Gallery captions and achievement
   descriptions now also show on keyboard focus and stay visible on touch devices.
 - **Event dates are recovered from the write-ups.** See below.
-- **What's Next is an empty state.** The archived page contained only placeholder
-  text (`asdf`) and an image reference pointing at an HTML file.
+- **What's Next is data-driven.** The archived page contained only placeholder
+  text (`asdf`) and an image reference pointing at an HTML file, so it now reads
+  from `src/data/whats-next.ts` and shows an empty state until an event is added.
 
 ## Event dates
 

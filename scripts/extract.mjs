@@ -92,9 +92,18 @@ async function copyMedia() {
   let outputBytes = 0
   let resized = 0
 
-  // public/images is entirely generated, so clear it to avoid leaving behind
-  // files from an earlier run whose naming or format has since changed.
-  fs.rmSync(OUT_IMG, { recursive: true, force: true })
+  // Clear only the top-level folders this run regenerates, so that an earlier
+  // run's naming or format leaves nothing behind — while images added by hand
+  // for pages the archive has no content for (public/images/whats-next, say)
+  // survive.
+  const generatedRoots = new Set(
+    files
+      .filter((rel) => /\.(jpe?g|png|gif|webp|tiff?)$/i.test(rel))
+      .map((rel) => normalizeImagePath(rel).split('/')[0]),
+  )
+  for (const root of generatedRoots) {
+    fs.rmSync(path.join(OUT_IMG, root), { recursive: true, force: true })
+  }
 
   const jobs = files.map(async (rel) => {
     // The archive contains one bogus ".html" file inside images/ (an HTTrack artifact).
