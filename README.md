@@ -91,11 +91,40 @@ transfer size.
   but never fetched them, so the site silently rendered in Arial.
 - **Hover-only content is reachable.** Gallery captions and achievement
   descriptions now also show on keyboard focus and stay visible on touch devices.
-- **Event dates are not displayed.** The old database column held an import
-  timestamp, not the event date — 88 of the 100 records share `25/11/2025`. The
-  value is kept in `event-details.json` as `importedDate` and rendered nowhere.
+- **Event dates are recovered from the write-ups.** See below.
 - **What's Next is an empty state.** The archived page contained only placeholder
   text (`asdf`) and an image reference pointing at an HTML file.
+
+## Event dates
+
+The archived database's date column was an import timestamp, not the event date —
+88 of the 100 rows read `25/11/2025` — so it was discarded. Dates are instead
+parsed out of each write-up by `scripts/lib/event-dates.mjs`, and every event
+carries a `dateSource`:
+
+| `dateSource` | Count | Meaning |
+| --- | --- | --- |
+| `text` | 34 | The write-up stated a full date, e.g. "on Sunday, 12th October 2025" |
+| `inferred` | 18 | It gave a day and month only ("on 29th June"); the **year** is derived from event ordering, bounded by the nearest events that do state one |
+| `none` | 48 | The write-up never says when it happened ("today", "this Diwali"), so no date is shown |
+
+Nothing is guessed from festival or observance names — an event described only as
+a Diwali celebration is left undated rather than assigned that year's Diwali.
+
+Two scripts help audit this; neither is part of the build:
+
+```bash
+node scripts/probe-dates.mjs --unmatched   # coverage, chronology check, missed phrasings
+node scripts/audit-dates.mjs               # every date beside the sentence it came from
+```
+
+`probe-dates.mjs` also verifies that dates increase with event number; it should
+always report `out of order: 0`.
+
+**To correct a date**, edit `date` in both `events.json` and `event-details.json`
+and set `dateSource` to `"text"` — but note that `npm run extract` overwrites
+both. For a permanent fix, correct the wording in the archive or extend the
+parser.
 
 ## Deployment
 
