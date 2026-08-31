@@ -1,0 +1,1064 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown .dropdown-menu{
+    display:none;
+}
+
+.dropdown:hover > .dropdown-menu, .dropend:hover > .dropdown-menu {
+    display: block;
+    margin-top: .125em;
+    margin-left: 0;
+}
+
+@media screen and (min-width:768px)
+{
+    .dropdown-menu .dropend:hover > .dropdown-menu {
+        display: block !important;
+        margin-right:0 !important;
+        position: absolute;
+        top: 0 !important;
+        left: 100% !important;
+        right:auto !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+    }
+}
+
+
+
+.custom-nav-link {
+    font-size: var(--navbar-font-size);
+    font-family: var(--nav-font-family) !important;
+    font-style: var(--nav-font-style) !important;
+    font-weight: var(--nav-font-weight) !important;
+    margin-left: var(--navbar-link-margin);
+    margin-right: var(--navbar-link-margin);
+    color: var(--nav-fg-color) !important;
+    background-color: var(--nav-bg-color);
+}
+
+.custom-nav-link:hover,
+.custom-nav-link:focus {
+    color: var(--nav-fg-hover-color) !important;
+    background-color: var(--nav-bg-hover-color) !important;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.navbar-brand-custom {
+    margin-left: var(--icon-margin-horizontal); 
+    margin-right: 0;
+}
+
+/* FIX: Target only the dropdown menus directly under a top-level nav item */
+/* This targets the <ul> elements that are *not* inside another dropdown menu */
+.navbar .dropdown-menu.sub-menu-popout::before, /* Target sub-menu popout specifically */
+.navbar .dropdown-menu:not(.sub-menu-popout)::before {
+    /* Set content to nothing for the nested menus */
+    content: none;
+}
+
+
+/* Re-apply the arrow style ONLY to the second-level menu */
+/* This ensures the arrow only appears once, under the GALLERY link */
+#gallery-menu-ul::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid var(--dropdown-bg-color); /* Use your custom color variable */
+    z-index: 10;
+}
+
+/* --- 3. Ensure Middle Items Have No Radius on Hover --- */
+.dropdown-item:hover{
+    color: var(--dropdown-fg-hover-color) !important;
+    background-color: var(--dropdown-bg-hover-color) !important;
+    border-radius: 0 !important;
+}
+
+/* Style the dropdown menu itself */
+.dropdown-menu {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: var(--dropdown-bg-color) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius:5px !important; 
+    position: relative;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.dropdown-menu.allow-overflow {
+    overflow: visible !important;
+}
+
+.dropdown-item {
+    font-size: var(--dropdown-item-font-size);
+    font-family: var(--dropdown-item-font-family);
+    font-style: var(--dropdown-item-font-style);
+    font-weight: var(--dropdown-item-font-weight);
+    padding-top:10px;
+    padding-bottom:10px;
+    color: var(--dropdown-fg-color) !important;
+    background-color: transparent !important;
+}
+
+
+/* 1. FIXED FOOTER BAR STYLING */
+#fixed-admin-footer {
+    position: fixed; /* Stays in the same spot relative to the viewport */
+    bottom: 0; /* Fixed to the bottom edge */
+    left: 0; /* Fixed to the left edge */
+    width: 100%; /* Span the entire width */
+    height: 50px; /* Give it a fixed height */
+
+    background-color: #f8f9fa; /* Light gray background (Bootstrap's bg-light) */
+    border-top: 1px solid #dee2e6; /* Border at the top */
+    z-index: 1050; /* Ensure it stays above everything else */
+    padding: 0 20px;
+}
+
+/* 2. MAIN SCROLLING AREA */
+#settings-scroll-area {
+    /* Calculate the space remaining after accounting for header, title, and the fixed footer */
+    /* 100vh = 100% of the viewport height. Subtract space for title/hr/margins and footer height */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-bottom: 10px; /* Space below the last element */
+}
+
+/* 3. Adjust the main form container (optional, but good for cleanliness) */
+.col-md-6 {
+    /* Ensure the column takes up the full vertical height of its content */
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-full {
+    /* Aggressively remove all padding and margins */
+    padding: 0 !important;
+    margin: 0 !important;
+    /* Ensure the main element allows its children (the carousel) to stretch */
+    width: 100%;
+}
+
+#imageCarousel {
+    max-height: 400px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* You may want to keep the negative margin as a fallback if the space persists: */
+    /* margin-left: -15px; 
+       margin-right: -15px;
+       width: calc(100% + 30px); 
+    */
+}
+
+#imageCarousel .carousel-inner,
+#imageCarousel .carousel-item {
+    /* Ensures the inner elements respect the max-height of the outer container */
+    max-height: 400px;
+}
+
+#imageCarousel .carousel-item img {
+    /* Ensures the image respects the container width */
+    width: 100%;
+    /* The height will now scale automatically to show the entire image */
+    height: auto;
+
+    max-height: 400px;
+}
+
+@media (max-width: 768px) {
+    #imageCarousel,
+    #imageCarousel .carousel-item,
+    #imageCarousel .carousel-inner,
+    #imageCarousel .carousel-item img {
+        /* Remove the fixed max-height constraint on small screens 
+           to allow full proportionality and continuous shrinking. */
+        max-height: none;
+    }
+}
+
+.carousel-separator {
+    /* Height of the separator (thickness of the line) */
+    height: 1px;
+    /* Ensure it spans full width and has no default margins/padding */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* Apply the dashed border style */
+    border-top: 1px dashed #cccccc; /* Light gray dashed line */
+    /* Add a little vertical spacing if needed (optional) */
+    margin-bottom: 5px;
+}
+
+#imageCarousel .carousel-control-prev,
+#imageCarousel .carousel-control-next {
+    width: 30px;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0;
+}
+
+#imageCarousel .carousel-control-prev-icon,
+#imageCarousel .carousel-control-next-icon {
+    filter: brightness(0.1) grayscale(1) !important; /* Forces the icon to a near-black shade */
+    width: 25px;
+    height: 25px;
+    
+}
+
+#imageCarousel .custom-indicators button {
+    /* Set dimensions (adjust width/height for desired bubble size) */
+    width: 10px;
+    height: 10px;
+    /* Change shape from Bootstrap's default rectangle to circle */
+    border-radius: 50%;
+    /* Set color for the black border */
+    border: 1px solid black;
+    /* Set color for the inactive fill (less white/semi-transparent) */
+    background-color: rgba(255, 255, 255, 0.4); /* White at 40% opacity */
+    /* Add a little space between bubbles */
+    margin: 0 4px;
+    /* Ensure no residual opacity filter is interfering */
+    opacity: 1;
+}
+
+/* 2. Style for the ACTIVE Indicator */
+#imageCarousel .custom-indicators button.active {
+    /* Set color for the active fill (solid white) */
+    background-color: #ffffff;
+    /* Ensure the black border remains */
+    border-color: black;
+}
+
+/* --- CONTAINER FOR FLOATING ICONS --- */
+.social-floating-bar {
+    position: fixed; /* Fixes the bar relative to the viewport */
+    right: 10px; /* Distance from the right edge */
+    top: 50%; /* Centers the top edge at 50% of viewport height */
+    /* CRITICAL: Shifts the element up by half its height to perfectly center it */
+    transform: translateY(-50%);
+    z-index: 1000; /* Ensures it floats above all other content */
+    display: flex;
+    flex-direction: column; /* Stacks the icons vertically */
+}
+
+/* --- INDIVIDUAL ICON STYLING (The circle button) --- */
+.social-floating-bar a {
+    /* Set Dimensions */
+    width: 48px;
+    height: 48px;
+    /* Make it a circle */
+    border-radius: 50%;
+    /* Center the icon text inside the circle */
+    display: flex;
+    justify-content: center;
+    text-decoration:none;
+    align-items: center;
+    /* Spacing between icons */
+    margin-bottom: 8px;
+    /* Text/Icon Color */
+    color: white;
+    /* Visuals */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* --- ICON HOVER EFFECT --- */
+.social-floating-bar a:hover {
+    transform: scale(1.1); /* Scales up slightly on hover */
+}
+
+/* --- BACKGROUND COLORS (Optional: Match Brand Colors) --- */
+.social-floating-bar .facebook {
+    background-color: #3b5998;
+}
+
+.social-floating-bar .youtube {
+    background-color: #ff0000;
+}
+
+.social-floating-bar .twitter {
+    background-color: black;
+}
+
+.social-floating-bar .instagram {
+    /* The Instagram gradient typically runs diagonally from top-left to bottom-right */
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    /* This gradient uses key brand colors: yellow/orange, pink/red, purple/blue */
+}
+
+.social-floating-bar .instagram i {
+    color: white;
+}
+
+.social-floating-bar i {
+    font-size: 18px; /* Set a clear, visible size */
+    color: white; /* Set a foreground color that is visible against the background */
+    /* Ensure no residual CSS is hiding the icon */
+    visibility: visible;
+}
+
+/* --- FIXED WHATSAPP BUTTON --- */
+#whatsapp-fixed-button {
+    /* Positioning: Fixed to the bottom right */
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom edge */
+    right: 20px; /* Distance from the right edge */
+    /* Display and Alignment */
+    display: flex;
+    align-items: center; /* Vertically center icon and text */
+    justify-content: center;
+    /* WhatsApp Branding Colors */
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: white; /* White text/icon */
+    /* Shape and Appearance */
+    border-radius: 25px; /* High value for rounded 'pill' shape */
+    padding: 10px 18px; /* Padding around text and icon */
+    /* Ensure it stays above everything else */
+    z-index: 999;
+    /* Remove underline (standard for anchor tags) */
+    text-decoration: none;
+    /* Typography */
+    font-size: 16px;
+    font-weight: 500;
+    /* Hover Effect */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#whatsapp-fixed-button:hover {
+    background-color: #128C7E; /* Slightly darker green on hover */
+    transform: scale(1.05); /* Slight lift effect */
+}
+
+/* Style the icon size */
+#whatsapp-fixed-button i {
+    font-size: 20px;
+}
+
+/* Style for the dark blue introductory section */
+.intro-section-dark {
+    background-color: #082549; /* Dark blue color matching the image */
+    border-top: 5px solid #0b3364; /* Top border with the specified blue color */
+    border-bottom: 10px solid #0b3364; /* Bottom border with the specified blue color */
+    color: white;
+    padding: 5px 0; /* Add vertical padding */
+    margin-top: 0; /* Ensure it sits right against the carousel */
+}
+
+/* Style the main quote */
+.intro-section-dark h2 {
+    font-size: 32px; /* Adjust font size to match the design */
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-style:normal;
+    margin-bottom: 20px;
+}
+
+/* Style the text block */
+.intro-section-dark p {
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    /* Ensure the text breaks correctly */
+    font-family: Roboto, sans-serif;
+}
+
+/* Style the image container to prevent overflow */
+.intro-section-image {
+    padding-right: 20px;
+}
+
+.fixed-intro-image {
+    /* Fixed Dimensions */
+    width: 259px;
+    height: 175px;
+    /* Ensures the image displays correctly */
+    display: block;
+}
+
+.intro-section-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styling the main title */
+.latest-events-title {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    color: white; /* Use a prominent color */
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* --- HOVER EFFECT FOR CARDS --- */
+.event-card-hover {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.event-card-hover:hover {
+    transform: translateY(-8px); /* Lifts the card slightly */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* --- TEXT LIMITING & STYLING --- */
+.event-excerpt-limited {
+    font-size: 0.9rem;
+    color: #666;
+    /* Limit text to 4 lines for consistent card height */
+    max-height: 4.8em; /* 4 lines * 1.2em line-height = 4.8em */
+    overflow: hidden;
+    line-height: 1.2em; /* Ensure line height is defined for max-height calculation */
+}
+
+.event-id-title {
+    /* Style the header area */
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ensures long titles are visually cut off */
+    padding-bottom: 5px;
+}
+
+.custom-event-card {
+    /* 1. INCREASE CORNER ROUNDING (Border-radius) */
+    /* Change the rounding value to make corners more noticeable */
+    border-radius: 20px; /* Standard Bootstrap cards are 0.25rem, we increase this */
+    /* 2. ADD DEFINITION WITH A BOX SHADOW */
+    /* The shadow is the key to making the white card stand out on a white background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow, slightly lifted */
+    /* 3. Ensure the border is sharp (optional, if you want a clean border) */
+    border: 1px solid #e0e0e0; /* A very light gray border */
+    overflow: hidden; /* Ensures child elements respect the border radius */
+    /* Ensure the shadow and radius are smooth on hover */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* The following line is from your original code, ensure it's still present: */
+    /* border: 1px solid #dee2e6; */
+}
+
+.custom-event-card .event-title-bar {
+    /* Apply radius only to the top corners */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    /* Ensure the color matches the card body if necessary */
+    background-color: #ffffff;
+}
+
+.custom-event-card .card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    height: 180px;
+    object-fit: cover;
+}
+
+.LatestEventscontainer {
+    background-color: #3a5a81;
+}
+
+
+
+/* 1. New Wrapper: Applies background and padding to the full width */
+.key-points-header {
+    background-color: #6a829f; /*MOVED BACKGROUND COLOR HERE */
+    padding-top: 0; /* Add vertical padding above the text */
+    padding-bottom: 0; /* Add vertical padding below the text */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+/* 2. Heading Style: Now ONLY focuses on text styling, not background */
+.key-points-header h2 {
+    font-weight: 700;
+    font-size: 24px;
+    color: white; /* Text color remains white */
+    font-family: 'Roboto', sans-serif; /* Corrected CSS font-family syntax */
+    font-style: normal;
+    text-align: center;
+    /* Remove background, border-radius, and any extra padding/margin */
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 15px;
+}
+
+/* Styling for the Key Facts List */
+.key-fact-group {
+    padding: 0;
+}
+
+.list-group {
+    margin-left: 70px;
+    margin-right: 30px;
+}
+
+/* Style for each individual fact item */
+.key-fact-item {
+    border: none; /* Remove default list group item borders */
+    background-color: transparent;
+    padding: 4px 0; /* Vertical spacing */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(51,51,51);
+}
+
+/* Style the icon for visual appeal (using Font Awesome) */
+.key-fact-item i {
+    color: #ff6600; /* Use your established green color */
+    min-width: 25px; /* Ensures all icons align vertically */
+    text-align: center;
+}
+
+.in-news-container {
+    background-color: #3a5a81;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 20px;
+}
+
+.in-news-title {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    color: white; /* Use a prominent color */
+    text-align: center;
+}
+
+/* 1. Card Container (Handles Rounding and Hover) */
+.gallery-card-hover {
+    border-radius: 15px; /* Applies roundness to all corners of the card */
+    overflow: hidden; /* CRITICAL: Clips the image to fit the rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none; /* Remove default card border */
+    width:100%;
+    height:200px;
+}
+
+/* Hover Effect */
+.gallery-card-hover:hover {
+    transform: scale(1.05); /* Zooms the card slightly */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    cursor: pointer;
+}
+
+/* 2. Image Sizing */
+.gallery-image {
+    width: 100%;
+    height: 100%;
+
+    /* Center the image within the container */
+    display: block;
+    margin: auto;
+}
+
+.in-news-container .row {
+    margin-right:3px;
+}
+
+/* --- FOOTER STYLING --- */
+.footer-custom {
+    /* Use a dark background to make the footer distinct */
+    background-color: #343a40; /* Dark Gray/Black */
+    color: #f8f9fa; /* Light text color */
+    padding-top: 15px;
+    font-size: 0.95rem;
+}
+
+.footer-custom a {
+    color: #f8f9fa; /* Link color */
+    text-decoration: none;
+}
+
+.footer-custom a:hover {
+    color: #25D366; /* WhatsApp Green on hover (for consistency) */
+}
+
+/* Footer Headings */
+.footer-heading {
+    color: #25D366; /* Use green for headings */
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Contact List Styling */
+.list-unstyled li {
+    margin-bottom: 8px;
+}
+
+.list-unstyled li i {
+    min-width: 20px; /* Aligns icons vertically */
+}
+
+/* --- SOCIAL ICON STYLING --- */
+.social-icon-link {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.social-icon-link i {
+    color: white;
+}
+
+/* Icon Colors (Optional: Set background to match brand color) */
+.facebook-footer {
+    background-color: #3b5998;
+}
+
+.youtube-footer {
+    background-color: #ff0000;
+}
+
+.x-footer {
+    background-color: black;
+}
+
+.instagram-footer {
+    /* Use gradient for Instagram consistency */
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* Copyright Bar */
+.footer-copyright {
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly darker bar at the bottom */
+    color: #aaa;
+    font-size: 0.8rem;
+    border-top: 1px solid #444;
+}
+
+.page-headings {
+    background-color: #5a6e8f;
+    color: white;
+    text-align: center;
+    
+    padding-top: 10px;
+    padding-bottom:20px;
+    margin:0;
+}
+
+.page-headings h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size:34px;
+    font-style:normal;
+    font-weight:400;
+}
+
+.page-sub-heading h2{
+    font-family:'Lato', sans-serif;
+    font-style:normal;
+    font-weight:500;
+    font-size:24px;
+    color:rgb(33,33,33);
+    padding-top:10px;
+}
+
+.page-sub-heading h3 {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: rgb(51,51,51);
+    width:auto;
+    height:auto;
+}
+
+.page-sub-heading p {
+    font-family: 'verdana', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(51,51,51);
+    width: auto;
+    height: auto;
+}
+
+.key-points-list ul li{
+    font-family:'Lato', sans-serif;
+    font-size:14px;
+    font-weight:400;
+    font-style:normal;
+    color:rgb(51,51,51);
+}
+
+.key-points-list {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(51,51,51);
+}
+
+.key-points-list .question {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    color: rgb(51,51,51);
+}
+
+.key-points-list .answer {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(51,51,51);
+    padding-bottom:5px;
+}
+
+.key-points-list p {
+    font-family: 'verdana', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(51,51,51);
+    width: auto;
+    height: auto;
+}
+
+.key-points-list h5 {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(51,51,51);
+    width: auto;
+    height: auto;
+}
+
+.key-points-list h4 {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top:20px;
+    color: rgb(51,51,51);
+    width: auto;
+    height: auto;
+}
+
+/* --- 1. The Parent Container (Enables Flexbox) --- */
+.image-text-container {      
+    width: 100%; /* Ensures the container spans the available width */
+    margin-bottom: 20px; /* Adds space below the whole section */
+}
+
+    /* --- 2. The Image Element --- */
+.image-text-container .founder-image {
+    float:left;
+    /* Set a fixed size for the image or allow it to size based on its content */
+    width: 350px; /* Example: Fix the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    /* Ensure the image doesn't wrap oddly */
+    padding-right:30px;
+}
+
+
+
+@media (max-width: 768px) {
+    .image-text-container {
+        /* Change the direction to vertical for small screens */
+        float: none;
+        display: flex;
+        flex-direction: column;
+        /* Center the image on mobile */
+        align-items: start;
+        text-align: left;
+    }
+
+    /* Ensure the image scales down on mobile */
+    .image-text-container .founder-image {
+        width: 350px; /* Image uses full width available */
+        height:400px; /* But doesn't get larger than its original size */
+        margin-bottom: 15px;
+    }
+}
+
+.page-sub-heading .image-text-container .text-content h3{
+    font-family:'Lato', sans-serif;
+    font-size:14px;
+    font-style:italic;
+    font-weight:700;
+    color:rgb(51,51,51);
+}
+
+.page-sub-heading .image-text-container .text-content ul li {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(51,51,51);
+}
+
+.page-sub-heading .image-text-container .text-content p{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(51,51,51);
+}
+
+/* --- BASE CARD AND IMAGE --- */
+.achievement-card {
+    position: relative;
+    overflow: hidden; /* Hides parts of the image/overlay that extend outside */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 250px; /* Fixed height for uniform grid appearance */
+}
+
+.achievement-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the whole area */
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* --- OVERLAY STYLING --- */
+.achievement-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Black, semi-transparent background (60% opacity) */
+    background: rgba(0, 0, 0, 0.6);
+    /* Initially hidden or barely visible */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    /* Flexbox to center the text content vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+/* --- OVERLAY TEXT --- */
+.overlay-content {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+/* --- HOVER EFFECT --- */
+.achievement-card:hover .achievement-overlay {
+    opacity: 1; /* Makes the overlay fully visible */
+}
+
+.achievement-card:hover .achievement-img {
+    transform: scale(1.05); /* Slight zoom on image for dynamic effect */
+}
+
+/* --- SIMPLE LIST STYLING --- */
+.achievement-list-simple li {
+    font-family:'Lato', sans-serif;
+    font-size: 14px;
+    font-style:normal;
+    font-weight:400;
+    padding-bottom: 2px;
+}
+
+.table-achievements .table-ddls{
+    margin-left:10px;
+    margin-right:40px;
+}
+
+/* Makes the iframe scale down gracefully on small screens */
+.google-form-iframe {
+    /* Use 100% width to ensure it fills the container on mobile */
+    width: 100%;
+    /* Set a reasonable maximum width so it doesn't look too wide on desktop */
+    max-width: 800px;
+    /* You can adjust the height based on your form length */
+    min-height: 800px;
+    height: auto;
+}
+
+.as-member {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 2px;
+    color:rgb(255,102,0);
+}
+
+.contact-us h2{
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    color: rgb(51,51,51);
+}
+
+.contact-us h2 span{
+    color:black;
+}
+
+.contact-us h2 span a{
+    text-decoration:none;
+    color: black;
+}
+
+/* --- DDL GALLERY STYLING --- */
+
+/* 1. Base Item Container */
+.ddl-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* Consistent rounding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 250px; /* Fixed height for a uniform grid */
+    transition: box-shadow 0.3s;
+}
+
+.ddl-gallery-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Image Sizing */
+.ddl-gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit:scale-down; /* Ensures image covers the whole area */
+    display: block;
+    transition: transform 0.3s;
+}
+
+/* 3. The Overlay (Hidden by Default) */
+.ddl-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    /* Black semi-transparent background (60% opaque) */
+    background: rgba(0, 0, 0, 0.75);
+    /* Initially hidden */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    /* Center the text vertically at the bottom */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+
+.ddl-overlay .overlay-title {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    text-align:center;
+    width:100%;
+    margin-bottom: 0;
+}
+
+/* 4. HOVER EFFECT */
+.ddl-gallery-item:hover .ddl-overlay {
+    opacity: 1; /* Makes the overlay fully visible on hover */
+}
+
+.ddl-gallery-item:hover .ddl-gallery-img {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* --- CORONA DRIVE GALLERY STYLING (From Previous Steps) --- */
+
+/* 1. Card Container (Ensures uniform fixed height and shadow) */
+.fixed-drive-card {
+    /* Height and shape control */
+    height: 350px; /* Adjust this fixed height as needed */
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    /* Ensure shadow is visible (assuming you added the shadow-sm class in HTML) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. Image Styling (Ensures image fills the area) */
+.drive-img-fixed {
+    width: 100%;
+    height: 100%; /* Image height (300px card height - 50px for caption) */
+    /* Ensures the entire image fills the defined area without distortion */
+    object-fit: cover;
+    display: block;
+}
+
+.index-tables {
+    margin-left: 10px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.img-float{
+    float:left;
+    padding-right:10px;
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column; /* Stack children (header, main, footer) vertically */
+    min-height: 100vh; /* Ensure the container is at least the full height of the screen */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Make the content wrapper grow to fill empty space */
+#content-wrap {
+    /* CRITICAL: This element grows to consume all extra vertical space, 
+       pushing the element below it (the footer) to the bottom. */
+    flex-grow: 1;
+}
