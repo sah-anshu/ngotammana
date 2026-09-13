@@ -112,22 +112,7 @@ export default function FounderPage() {
             </i>{' '}
             …. Chairman, Aryan Group of Colleges
           </li>
-        </ul>
-
-        <p>
-          While Isha topped her Economics Honors, and is an MBA in HR, she has always pursued what
-          she has felt right for her, ensuring she does what she loves and loves what she does.
-        </p>
-        <p>
-          Apart from being a leader with an example, for anyone around, she is a complete entertainer,
-          a total fun to be around &amp; spreads a little sparkle wherever she goes! She with utmost
-          zest – dances, sings, writes, plays piano, has a green thumb, is an adrenaline junkie,
-          shops till she drops, binge watches, loves to play chess, table tennis, badminton, do yoga
-          &amp; have coffee, is a make-up &amp; dress up enthusiast, passionate for art &amp; craft
-          &amp; the more you dig, more you find in her!
-        </p>
-        <p>Her cheer for life, the good vibe attracts her tribe.</p>
-        <p>With her never-give-up attitude and a clean approach, she has made it far!</p>
+        </ul>        
       </Prose>
     </PageShell>
   )
