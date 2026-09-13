@@ -88,16 +88,18 @@ function UpcomingCard({ event }: { event: UpcomingEvent }) {
 
 function EmptyState() {
   return (
-    <div className="mt-6 rounded-lg border border-dashed border-gray-300 bg-gray-50 px-6 py-12 text-center">
-      <FaRegCalendar aria-hidden className="mx-auto mb-4 h-10 w-10 text-keypoints" />
-      <h3 className="mb-2 font-sans text-lg font-bold text-ink-strong">
-        No upcoming event announced yet
-      </h3>
-      <p className="mx-auto max-w-xl font-body text-sm text-ink">
-        Our events run monthly, mostly on weekends. Details for the next one are shared here and on
-        our social channels as soon as they are confirmed.
-      </p>
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
+    <div className="mt-6 flex flex-col items-center justify-center rounded-lg border border-gray-200 bg-gray-50 px-6 py-8 text-center">
+      {/* Add your Coming Soon Image here */}
+      <Image
+        src="/images/whatnext/whatsnext.webp"
+        alt="Coming Soon - Stay Tuned"
+        width={1024}
+        height={1536}
+        className="h-auto w-full max-w-md rounded shadow-sm"
+        priority // Add priority if this is the main element above the fold
+      />
+      
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link
           href="/gallery/events"
           className="rounded bg-heading-bar px-4 py-2 font-sans text-sm font-bold text-white"

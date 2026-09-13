@@ -1,5 +1,112 @@
 [
   {
+    "id": 113,
+    "eventNo": 180,
+    "title": "ASHIA - 18’",
+    "excerpt": "NGO Tammana Marks 18 Years of Service with ASHIA 18 Celebration Chandigarh, September 6, 2026: NGO Tammana marked its 18th anniversary with ASHIA…",
+    "image": {
+      "src": "/images/gallery/events/180.webp",
+      "width": 733,
+      "height": 554
+    },
+    "date": "2026-09-06",
+    "dateSource": "text"
+  },
+
+  {
+    "id": 112,
+    "eventNo": 179,
+    "title": "Independence Day Carnival",
+    "excerpt": "NGO Tammana Celebrates Independence Day with 150 Children at a slum in Zirakpur!…",
+    "image": {
+      "src": "/images/gallery/events/179.webp",
+      "width": 733,
+      "height": 554
+    },
+    "date": "2026-08-15",
+    "dateSource": "text"
+  },
+
+  {
+    "id": 111,
+    "eventNo": 178,
+    "title": "Yoga Utsav",
+    "excerpt": "NGO Tammana’s Yoga Utsav (Event No. 178) at The Garden of Fragrance, Sector 36, Chandigarh brought together people of all age groups for an intimate well…",
+    "image": {
+      "src": "/images/gallery/events/178.webp",
+      "width": 733,
+      "height": 554
+    },
+    "date": "2026-06-14",
+    "dateSource": "text"
+  },
+
+  {
+    "id": 110,
+    "eventNo": 177,
+    "title": "THE 10K NATURE RESET",
+    "excerpt": "NGO Tammana successfully organised “The 10K Nature Reset” at Sukhna Lake, Chandigarh, on Sunday morning, bringing together participants for an …",
+    "image": {
+      "src": "/images/gallery/events/177.webp",
+      "width": 733,
+      "height": 554
+    },
+    "date": "2026-05-24",
+    "dateSource": "text"
+  },
+  {
+    "id": 109,
+    "eventNo": 176,
+    "title": "The Period Cramp Experience",
+    "excerpt": "NGO Tammana Conducted Period Cramp Experience – Event 176 with 230+ Participants in Collaboration with OSL, The Unfilter…",
+    "image": {
+      "src": "/images/gallery/events/176.webp",
+      "width": 733,
+      "height": 554
+    },
+    "date": "2026-05-05",
+    "dateSource": "text"
+  },
+  {
+    "id": 108,
+    "eventNo": 175,
+    "title": "PINKy PromiSe | Breast Cancer Awareness",
+    "excerpt": "NGO Tammana organised a Free Mammography & Preventive Health Camp at Soul Space, Mayfair Apartments, Sector 70, Mohali…",
+    "image": {
+      "src": "/images/gallery/events/175.webp",
+      "width": 733,
+      "height": 554
+    },
+    "date": "2026-03-08",
+    "dateSource": "text"
+  },
+  {
+    "id": 107,
+    "eventNo": 174,
+    "title": "PUNYA 2.0",
+    "excerpt": "As winter tightens its grip, NGO Tammana has initiated PUNYA 2.0, an extension of its ongoing PUNYA initiative, to support those who build our cities…",
+    "image": {
+      "src": "/images/gallery/events/174.webp",
+      "width": 733,
+      "height": 554
+    },
+    "date": "2026-01-04",
+    "dateSource": "text"
+  },
+  {
+    "id": 106,
+    "eventNo": 173,
+    "title": "PUNYA 2025",
+    "excerpt": "NGO Tammana – Loving To Live For Others successfully conducted its 173rd social and annual initiative, “PUNYA 2025”, at Hansraj Dharamshala, PGI, Chan…",
+    "image": {
+      "src": "/images/gallery/events/173.webp",
+      "width": 733,
+      "height": 554
+    },
+    "date": "2025-12-21",
+    "dateSource": "text"
+  },
+  {
     "id": 105,
     "eventNo": 172,
     "title": "NGO Tammana Celebrates Diwali with ‘Light A Life’",
@@ -22,8 +129,8 @@
       "width": 1000,
       "height": 750
     },
-    "date": null,
-    "dateSource": "none"
+    "date": "2025-09-27",
+    "dateSource": "text"
   },
   {
     "id": 103,
@@ -35,8 +142,8 @@
       "width": 733,
       "height": 554
     },
-    "date": null,
-    "dateSource": "none"
+    "date": "2025-08-31",
+    "dateSource": "text"
   },
   {
     "id": 102,
@@ -48,8 +155,8 @@
       "width": 800,
       "height": 600
     },
-    "date": null,
-    "dateSource": "none"
+    "date": "025-08-03",
+    "dateSource": "text"
   },
   {
     "id": 101,
